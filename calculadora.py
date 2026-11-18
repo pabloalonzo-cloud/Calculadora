@@ -51,6 +51,7 @@ def mostrar_menu():
     print("11. Promedio")
     print("12. Redondeo")
     print("13. Ver historial")
+    print("14. Limpiar historial")
     print(" 0. Salir")
 
 
@@ -113,6 +114,11 @@ def mostrar_historial(historial):
         print(f"{i}. {registro}")
 
 
+def limpiar_historial(historial):
+    historial.clear()
+    print("Historial borrado.")
+
+
 def main():
     historial = []
     while True:
@@ -124,6 +130,9 @@ def main():
         if opcion == "13":
             mostrar_historial(historial)
             continue
+        if opcion == "14":
+            limpiar_historial(historial)
+            continue
         try:
             descripcion, resultado = ejecutar_operacion(opcion)
         except (ValueError, OverflowError) as error:
@@ -132,6 +141,7 @@ def main():
         registro = f"{descripcion} = {formato(resultado)}"
         historial.append(registro)
         print(f"Resultado: {registro}")
+
 
 if __name__ == "__main__":
     main()

@@ -47,3 +47,8 @@ def redondear(valor, decimales):
     if decimales < 0 or decimales != int(decimales):
         raise ValueError("Los decimales deben ser un entero no negativo.")
     return round(valor, int(decimales))
+
+def division(a, b):
+    if b == 0:
+        raise ValueError("No se puede dividir entre cero.")
+    return a / b

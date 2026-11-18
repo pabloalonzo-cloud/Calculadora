@@ -17,8 +17,12 @@ def potencia(base, exponente):
         raise ValueError("Una base negativa necesita un exponente entero.")
     return base ** exponente
     
-
 def modulo(a, b):
     if b == 0:
         raise ValueError("No se puede calcular el módulo con divisor cero.")
     return a % b
+    
+def raiz_cuadrada(n):
+    if n < 0:
+        raise ValueError("No existe la raíz cuadrada de un número negativo.")
+    return math.sqrt(n)

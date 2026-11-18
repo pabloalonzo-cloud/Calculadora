@@ -50,6 +50,7 @@ def mostrar_menu():
     print("10. Factorial")
     print("11. Promedio")
     print("12. Redondeo")
+    print("13. Ver historial")
     print(" 0. Salir")
 
 
@@ -103,19 +104,34 @@ def ejecutar_operacion(opcion):
     raise ValueError("Opción no válida. Elige un número del menú.")
 
 
+def mostrar_historial(historial):
+    print("\n--- HISTORIAL ---")
+    if not historial:
+        print("El historial está vacío.")
+        return
+    for i, registro in enumerate(historial, start=1):
+        print(f"{i}. {registro}")
+
+
 def main():
+    historial = []
     while True:
         mostrar_menu()
         opcion = input("Elige una opción: ").strip()
         if opcion == "0":
             print("Hasta luego.")
             break
+        if opcion == "13":
+            mostrar_historial(historial)
+            continue
         try:
             descripcion, resultado = ejecutar_operacion(opcion)
         except (ValueError, OverflowError) as error:
             print(f"Error: {error}")
             continue
-        print(f"Resultado: {descripcion} = {formato(resultado)}")
+        registro = f"{descripcion} = {formato(resultado)}"
+        historial.append(registro)
+        print(f"Resultado: {registro}")
 
 if __name__ == "__main__":
     main()

@@ -37,3 +37,13 @@ def factorial(n):
     if n < 0 or n != int(n):
         raise ValueError("El factorial solo se define para enteros no negativos.")
     return math.factorial(int(n))
+
+def promedio(numeros):
+    if len(numeros) == 0:
+        raise ValueError("Se necesita al menos un número para el promedio.")
+    return sum(numeros) / len(numeros)
+    
+def redondear(valor, decimales):
+    if decimales < 0 or decimales != int(decimales):
+        raise ValueError("Los decimales deben ser un entero no negativo.")
+    return round(valor, int(decimales))

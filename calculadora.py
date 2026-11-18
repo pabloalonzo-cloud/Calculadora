@@ -104,18 +104,18 @@ def ejecutar_operacion(opcion):
 
 
 def main():
-    mostrar_menu()
-    opcion = input("Elige una opción: ").strip()
-    if opcion == "0":
-        print("Hasta luego.")
-        return
-    try:
-        descripcion, resultado = ejecutar_operacion(opcion)
-    except (ValueError, OverflowError) as error:
-        print(f"Error: {error}")
-        return
-    print(f"Resultado: {descripcion} = {formato(resultado)}")
-
+    while True:
+        mostrar_menu()
+        opcion = input("Elige una opción: ").strip()
+        if opcion == "0":
+            print("Hasta luego.")
+            break
+        try:
+            descripcion, resultado = ejecutar_operacion(opcion)
+        except (ValueError, OverflowError) as error:
+            print(f"Error: {error}")
+            continue
+        print(f"Resultado: {descripcion} = {formato(resultado)}")
 
 if __name__ == "__main__":
     main()
